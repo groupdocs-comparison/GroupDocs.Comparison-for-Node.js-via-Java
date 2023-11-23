@@ -1,4 +1,4 @@
-const comparison = require('../lib/groupdocs.comparison')
+const comparison = require('@groupdocs/groupdocs.comparison')
 
 // Constant Variables 
 const Constants = require('./constants')
@@ -43,7 +43,7 @@ class ComparisonExamples {
   constructor() {
     // Initialize the License
     let lic = Constants.LicensePath
-    if (!lic || !lic.endsWith('.lic')) console.log('License is not found, continuing with demo version!')
+    if (!lic || !lic.endsWith('.lic')) console.log('License is not found in env.')
     else this.licensePath = lic
 
     // Initialize the model
@@ -183,7 +183,8 @@ class ComparisonExamples {
   }
 
   async setLicense(licensePath = '') {
-    if (this.licensePath) return setLicense(this, licensePath || this.licensePath)
+    if (licensePath) return setLicense(this, licensePath)
+    else if (this.licensePath) return setLicense(this, this.licensePath)
   }
 }
 
