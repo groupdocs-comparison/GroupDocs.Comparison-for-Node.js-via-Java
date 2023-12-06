@@ -15,7 +15,7 @@ async function compareImageFromStream(groupdocs) {
     const outputFileName = path.join(outputDirectory, Constants.RESULT_IMAGE);
 
     // Set comparison options
-    const options = new groupdocs.comparison.Options.CompareOptions();
+    const options = new groupdocs.comparison.CompareOptions();
     options.setGenerateSummaryPage(false);
 
     // Add the target image for comparison

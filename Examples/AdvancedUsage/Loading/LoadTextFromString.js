@@ -6,7 +6,7 @@ const Constants = require('../../../constants');
  */
 async function loadTextFromString(groupdocs) {
     const outputDirectory = Constants.getOutputDirectoryPath();
-    const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
+    const outputFileName = path.join(outputDirectory, Constants.RESULT_TXT);
   
 	const loadOptions = new groupdocs.comparison.LoadOptions();
 	loadOptions.setLoadText(true);
