@@ -5,7 +5,7 @@ const Constants = require('../../../constants');
  * This example demonstrates comparing of two texts loaded by string variables
  */
 async function loadTextFromString(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('loadTextFromString');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_TXT);
   
 	const loadOptions = new groupdocs.comparison.LoadOptions();

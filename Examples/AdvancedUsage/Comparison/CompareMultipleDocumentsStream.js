@@ -7,7 +7,7 @@ let OutputStream = java.import('java.io.FileOutputStream');
 async function compareMultipleDocumentsStream(groupdocs) {
   try {
     // Prepare the output directory and file name
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareMultipleDocumentsStream');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
     // Initialize the comparer with the source file

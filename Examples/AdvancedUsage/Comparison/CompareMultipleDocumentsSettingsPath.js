@@ -6,7 +6,7 @@ const Color = java.import('java.awt.Color');
 async function compareMultipleDocumentsSettingsPath(groupdocs) {
   try {
     // Prepare the output directory and file name
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareMultipleDocumentsSettingsPath');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
     // Initialize the comparer with the source file

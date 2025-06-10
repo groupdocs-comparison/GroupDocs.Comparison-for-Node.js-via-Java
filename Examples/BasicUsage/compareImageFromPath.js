@@ -10,7 +10,7 @@ async function compareImageFromPath(groupdocs) {
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_IMAGE);
 
     // Prepare the output file path
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareImageFromPath');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_IMAGE);
 
     // Set comparison options
@@ -18,7 +18,7 @@ async function compareImageFromPath(groupdocs) {
     options.setGenerateSummaryPage(false);
 
     // Add the target image for comparison
-    comparer.add(Constants.TARGET_IMAGE, options);
+    comparer.add(Constants.TARGET_IMAGE);
 
     // Compare the images and save the result
     await comparer.compare(outputFileName, options);

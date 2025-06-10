@@ -8,7 +8,10 @@ const Constants = require('../../constants');
 
 async function compareMultiplePdfDocuments(groupdocs) {
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_PDF);
-    const outputFileName = path.join(groupdocs.outputFolder, Constants.RESULT_PDF);
+
+    // Prepare the output file path
+    const outputDirectory = Constants.createOutputFolder('compareMultiplePdfDocuments');
+    const outputFileName = path.join(outputDirectory, Constants.RESULT_PDF);
 
     [Constants.TARGET_PDF, Constants.TARGET2_PDF, Constants.TARGET3_PDF].forEach(targetFilePath => {
         comparer.add(targetFilePath);

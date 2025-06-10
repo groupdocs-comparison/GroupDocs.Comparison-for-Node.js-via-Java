@@ -126,6 +126,16 @@ class Constants {
         let outputDirectory = path.resolve(this.outputPath);
         return outputDirectory;
     }
+
+    createOutputFolder(folderName) {
+        var outputDirectory = this.getOutputDirectoryPath();
+
+        const folderPath = path.join(outputDirectory, folderName);
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath);
+        }
+        return folderPath;
+    }
 }
 
 module.exports = new Constants();

@@ -11,7 +11,7 @@ async function compareImageFromStream(groupdocs) {
     const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_IMAGE));
 
     // Prepare the output file path
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareImageFromStream');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_IMAGE);
 
     // Set comparison options
@@ -19,7 +19,7 @@ async function compareImageFromStream(groupdocs) {
     options.setGenerateSummaryPage(false);
 
     // Add the target image for comparison
-    comparer.add(new InputStream(Constants.TARGET_IMAGE), options);
+    comparer.add(new InputStream(Constants.TARGET_IMAGE));
 
     // Compare the images and save the result
     await comparer.compare(outputFileName, options);

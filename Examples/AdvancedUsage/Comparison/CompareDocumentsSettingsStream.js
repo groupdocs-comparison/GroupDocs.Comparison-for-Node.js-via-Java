@@ -11,8 +11,8 @@ async function compareDocumentsSettingsStream(groupdocs) {
     const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
 
     // Prepare the output file path
-    const outputDirectory = await Constants.getOutputDirectoryPath();
-    const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
+    const outputDirectory = Constants.createOutputFolder('compareDocumentsSettingsStream');
+    const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD); 
 
     // Add the target file for comparison and perform the compare operation
     comparer.add(new InputStream(Constants.TARGET_WORD));

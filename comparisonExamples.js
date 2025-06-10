@@ -41,10 +41,7 @@ const getSupportedFormats = require('./Examples/BasicUsage/GetSupportedFormats')
 
 class ComparisonExamples {
   constructor() {
-    // Initialize the License
-    let lic = Constants.LicensePath
-    if (!lic || !lic.endsWith('.lic')) console.log('License is not found in env.')
-    else this.licensePath = lic
+    this.licensePath = Constants.LicensePath
 
     // Initialize the model
     this.comparison = comparison
@@ -184,7 +181,7 @@ class ComparisonExamples {
 
   async setLicense(licensePath = '') {
     if (licensePath) return setLicense(this, licensePath)
-    else if (this.licensePath) return setLicense(this, this.licensePath)
+    else return setLicense(this, this.licensePath)
   }
 }
 

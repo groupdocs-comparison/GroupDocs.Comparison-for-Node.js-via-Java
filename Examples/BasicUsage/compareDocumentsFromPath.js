@@ -8,7 +8,7 @@ const path = require('path');
 const Constants = require('../../constants');
 
 async function compareDocumentsFromPath(groupdocs) {
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareDocumentsFromPath');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
     
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);

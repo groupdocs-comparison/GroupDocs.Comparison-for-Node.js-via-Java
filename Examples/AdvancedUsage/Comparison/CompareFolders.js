@@ -3,7 +3,7 @@ const Constants = require('../../../constants');
 
 // Helper function to compare folders and output the result in a specified format
 async function compareFoldersAndSave(groupdocs, outputFormat) {
-  const outputDirectory = await Constants.getOutputDirectoryPath();
+  const outputDirectory = Constants.createOutputFolder('compareFoldersAndSave');
   const outputFileName = path.join(outputDirectory, Constants.RESULT_FOLDER + (outputFormat === 'HTML' ? '.html' : '.txt'));
 
   // Set compare options for directory comparison

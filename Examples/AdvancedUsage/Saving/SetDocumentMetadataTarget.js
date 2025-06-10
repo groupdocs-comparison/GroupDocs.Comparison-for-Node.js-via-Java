@@ -5,7 +5,7 @@ const Constants = require('../../../constants');
  * This example demonstrates using option for select metadata
  */
 async function setDocumentMetadataTarget(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('setDocumentMetadataTarget');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);

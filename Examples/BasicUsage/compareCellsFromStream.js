@@ -14,7 +14,7 @@ async function compareCellsFromStream(groupdocs) {
     const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_CELLS));
 
     // Prepare the output file path
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareCellsFromStream');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_CELLS);
 
     // Add the target file for comparison and perform the compare operation

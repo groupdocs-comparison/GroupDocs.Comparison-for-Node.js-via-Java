@@ -3,7 +3,7 @@ const Constants = require('../../../constants');
 
 async function compareMultipleDocuments(groupdocs, sourcePath, targetPaths, resultPath) {
   try {
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareMultipleDocuments');
     const outputFileName = path.join(outputDirectory, resultPath);
 
     // Create a Comparer object with the source document

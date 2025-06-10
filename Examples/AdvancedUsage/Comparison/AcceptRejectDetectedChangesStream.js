@@ -14,9 +14,10 @@ async function acceptRejectDetectedChangesStream(groupdocs) {
     // Initialize the comparer object with the source file path
     const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
 
-    let outputDirectory = Constants.getOutputDirectoryPath();
-    let outputPathAccepted = path.join(outputDirectory, Constants.RESULT_WITH_ACCEPTED_CHANGE_WORD);
-    let outputPathRejected = path.join(outputDirectory, Constants.RESULT_WITH_REJECTED_CHANGE_WORD);
+    // Prepare the output file path
+    const outputDirectory = Constants.createOutputFolder('acceptRejectDetectedChangesStream');
+    const outputPathAccepted = path.join(outputDirectory, Constants.RESULT_WITH_ACCEPTED_CHANGE_WORD);
+    const outputPathRejected = path.join(outputDirectory, Constants.RESULT_WITH_REJECTED_CHANGE_WORD);
 
     // Add the target file and compare
     comparer.add(new InputStream(Constants.TARGET_WORD));

@@ -6,7 +6,7 @@ const Constants = require('../../constants')
 async function compareDocumentsProtectedPath(groupdocs) {
   try {
     // Prepare the output directory and file name
-    const outputDirectory = await Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('compareDocumentsProtectedPath');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
     // Initialize the comparer with the source file and load options

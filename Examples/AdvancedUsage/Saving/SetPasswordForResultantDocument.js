@@ -5,7 +5,7 @@ const Constants = require('../../../constants');
  * This example demonstrates how protect result document by password
  */
 async function setPasswordForResultantDocument(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('setPasswordForResultantDocument');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);

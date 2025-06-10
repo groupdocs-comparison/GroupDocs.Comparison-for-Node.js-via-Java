@@ -5,7 +5,7 @@ const Constants = require('../../../constants');
  * This example demonstrates comparing of two documents loaded by file path
  */
 async function loadDocumentFromLocalDisc(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('loadDocumentFromLocalDisc');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);

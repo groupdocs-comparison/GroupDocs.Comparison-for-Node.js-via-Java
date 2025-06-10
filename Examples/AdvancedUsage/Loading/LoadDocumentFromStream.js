@@ -8,7 +8,7 @@ let OutputStream = java.import('java.io.FileOutputStream');
  * This example demonstrates comparing of two documents loaded by file stream
  */
 async function loadDocumentFromStream(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('loadDocumentFromStream');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));

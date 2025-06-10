@@ -7,9 +7,9 @@ const Color = java.import('java.awt.Color');
  * This example demonstrates simple Hello World example to compare documents
  */
 async function helloWorld(groupdocs) {
-    const outputDirectory = Constants.getOutputDirectoryPath();
+    const outputDirectory = Constants.createOutputFolder('helloWorld');
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
-  
+
     const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
 
     // Ensure the output directory exists
@@ -23,7 +23,7 @@ async function helloWorld(groupdocs) {
     // Compare the result
     comparer.compare(outputFileName);
   
-    console.log(`\nSource document rendered successfully.\nCheck output in ${outputFileName}.`);
+    console.log(`\nSource document compared successfully.\nCheck output in ${outputFileName}.`);
   }
 
   module.exports = helloWorld;
