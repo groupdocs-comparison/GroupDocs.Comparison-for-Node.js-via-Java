@@ -5,20 +5,18 @@ const fs = require('fs');
 class Constants {
     constructor() {
         
+        // Use local sample files directory
         this.localSamplesPath = "Resources/SampleFiles";
-        let possiblePaths = [
-            path.join(__dirname, "../../../../GroupDocs.Comparison.Examples.CSharp/", this.localSamplesPath),
-            path.join(__dirname, "../../../GroupDocs.Comparison.Examples.CSharp/", this.localSamplesPath),
-            path.join(__dirname, this.localSamplesPath)
-        ];
-
-        this.samplesPath = possiblePaths.find(p => fs.existsSync(p));
-        if (!this.samplesPath) {
-            throw new Error("Could not find samples directory");
+        this.samplesPath = path.join(__dirname, this.localSamplesPath);
+        
+        if (!fs.existsSync(this.samplesPath)) {
+            throw new Error(`Could not find samples directory at ${this.samplesPath}`);
         }
 
         this.outputPath = "Results/Output";
-        this.LicensePath = process.env.PATH_TO_LICS + process.env.PRODUCT_LIC;
+        
+        // License path from environment variable (full path to .lic file)
+        this.LicensePath = process.env.GROUPDOCS_LICENSE || '';
 
         this.SOURCE_CELLS = this.getSampleFilePath("source.xlsx");
         this.TARGET_CELLS = this.getSampleFilePath("target.xlsx");
@@ -71,23 +69,6 @@ class Constants {
         this.SOURCE_FOLDER = this.getSampleFilePath("SourceFolder");
         this.TARGET_FOLDER = this.getSampleFilePath("TargetFolder");
 
-
-        this.RESULT_WORD = "result.docx";
-        this.RESULT_WITH_NEW_AUTHOR_WORD = "resultWithNewAuthor.docx";
-        this.RESULT_WITH_ACCEPTED_CHANGE_WORD = "resultWithAcceptedChange.docx";
-        this.RESULT_WITH_REJECTED_CHANGE_WORD = "resultWithRejectedChange.docx";
-        this.RESULT_WORD_FONT = "result_font.docx";
-
-        this.RESULT_CELLS = "result.xlsx";
-        this.RESULT_SLIDES = "result.pptx";
-        this.RESULT_TXT = "result.txt";
-        this.RESULT_EMAIL = "result.eml";
-        this.RESULT_PDF = "result.pdf";
-        this.RESULT_DIAGRAM = "result.vsdx";
-        this.RESULT_IMAGE = "result.png";
-        this.RESULT_REVISIONS = "result.docx";
-        this.RESULT_FOLDER = "ResultFolderCompare";
-
         this.RESULT_WORD = "result.docx";
         this.RESULT_WITH_NEW_AUTHOR_WORD = "resultWithNewAuthor.docx";
         this.RESULT_WITH_ACCEPTED_CHANGE_WORD = "resultWithAcceptedChange.docx";
@@ -106,7 +87,8 @@ class Constants {
 
         this.DIAGRAM_SETTINGS = this.getSampleFilePath("basicShapes.vssx");
 
-        this.CUSTOM_FONT = this.getSampleFilePath("");
+        // Custom font path - update with actual font file name if needed
+        this.CUSTOM_FONT = this.getSampleFilePath("font.otf");
 
         this.ensureOutputDirectoryExists();
     }
