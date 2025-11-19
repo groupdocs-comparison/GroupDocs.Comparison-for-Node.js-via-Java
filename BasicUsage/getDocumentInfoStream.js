@@ -21,7 +21,7 @@ async function getDocumentInfoStream(groupdocs) {
     console.log('Using file stream for document loading...\n');
 
     // Initialize comparer with source document stream
-    const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
+    const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_WORD));
 
     // Extract document information
     console.log('Extracting document information...');

@@ -9,7 +9,7 @@
  */
 function setMeteredLicense(groupdocs) {
     // Initialize the Metered class
-    const metered = new groupdocs.comparison.Metered();
+    const metered = new groupdocs.Metered();
     
     // Replace with your actual Metered license keys from GroupDocs account
     const publicKey = "*****";

@@ -14,11 +14,11 @@ async function loadTextFromString(groupdocs) {
     const outputFileName = path.join(outputDirectory, Constants.RESULT_TXT);
   
     // Configure load options to indicate we're loading text from strings
-    const loadOptions = new groupdocs.comparison.LoadOptions();
+    const loadOptions = new groupdocs.LoadOptions();
     loadOptions.setLoadText(true);
 
     // Initialize comparer with source text string
-    const comparer = new groupdocs.comparison.Comparer("source text", loadOptions);
+    const comparer = new groupdocs.Comparer("source text", loadOptions);
 
     // Add target text string for comparison
     comparer.add("target text", loadOptions);

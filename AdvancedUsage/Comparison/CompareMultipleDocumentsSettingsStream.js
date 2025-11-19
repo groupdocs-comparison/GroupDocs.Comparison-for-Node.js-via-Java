@@ -20,7 +20,7 @@ async function compareMultipleDocumentsSettingsStream(groupdocs) {
         const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
         // Initialize comparer with source document
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
         // Add multiple target documents as streams for comparison
         comparer.add(new InputStream(Constants.TARGET_WORD));
@@ -28,8 +28,8 @@ async function compareMultipleDocumentsSettingsStream(groupdocs) {
         comparer.add(new InputStream(Constants.TARGET3_WORD));
 
         // Configure comparison options with custom styling
-        const compareOptions = new groupdocs.comparison.CompareOptions();
-        const styleSettings = new groupdocs.comparison.StyleSettings();
+        const compareOptions = new groupdocs.CompareOptions();
+        const styleSettings = new groupdocs.StyleSettings();
         styleSettings.setFontColor(Color.YELLOW);
         compareOptions.setInsertedItemStyle(styleSettings);
 

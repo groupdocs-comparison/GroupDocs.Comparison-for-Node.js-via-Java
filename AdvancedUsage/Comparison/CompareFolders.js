@@ -28,16 +28,16 @@ async function compareFoldersAndSave(groupdocs, outputFormat) {
     console.log(`Output file: ${outputFileName}\n`);
 
     // Configure comparison options for directory comparison
-    const compareOptions = new groupdocs.comparison.CompareOptions();
+    const compareOptions = new groupdocs.CompareOptions();
     compareOptions.setDirectoryCompare(true);
     compareOptions.setFolderComparisonExtension(
         outputFormat === 'HTML' 
-            ? groupdocs.comparison.FolderComparisonExtension.HTML 
-            : groupdocs.comparison.FolderComparisonExtension.TXT
+            ? groupdocs.FolderComparisonExtension.HTML 
+            : groupdocs.FolderComparisonExtension.TXT
     );
 
     // Initialize comparer with source folder path and comparison options
-    const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_FOLDER, compareOptions);
+    const comparer = new groupdocs.Comparer(Constants.SOURCE_FOLDER, compareOptions);
 
     // Add target folder for comparison
     console.log('Comparing folders...');

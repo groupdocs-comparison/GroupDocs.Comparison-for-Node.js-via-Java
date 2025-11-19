@@ -24,10 +24,10 @@ async function compareImageFromPath(groupdocs) {
         console.log('Comparison options: Summary page generation disabled\n');
 
         // Initialize comparer with source image file
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_IMAGE);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_IMAGE);
 
         // Configure comparison options - disable summary page generation
-        const options = new groupdocs.comparison.CompareOptions();
+        const options = new groupdocs.CompareOptions();
         options.setGenerateSummaryPage(false);
 
         // Add target image for comparison

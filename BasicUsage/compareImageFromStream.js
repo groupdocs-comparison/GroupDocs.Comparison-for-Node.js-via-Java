@@ -29,10 +29,10 @@ async function compareImageFromStream(groupdocs) {
         console.log('Using file streams with summary page generation disabled...\n');
 
         // Initialize comparer with source image file stream
-        const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_IMAGE));
+        const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_IMAGE));
 
         // Configure comparison options - disable summary page generation
-        const options = new groupdocs.comparison.CompareOptions();
+        const options = new groupdocs.CompareOptions();
         options.setGenerateSummaryPage(false);
 
         // Add target image stream for comparison

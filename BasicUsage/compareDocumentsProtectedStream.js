@@ -29,15 +29,15 @@ async function compareDocumentsProtectedStream(groupdocs) {
         console.log('Note: Documents are password-protected and loaded from streams\n');
 
         // Initialize comparer with source protected document stream and its password
-        const comparer = new groupdocs.comparison.Comparer(
+        const comparer = new groupdocs.Comparer(
             new InputStream(Constants.SOURCE_WORD_PROTECTED), 
-            new groupdocs.comparison.LoadOptions("1234")
+            new groupdocs.LoadOptions("1234")
         );
 
         // Add target protected document stream with its password
         comparer.add(
             new InputStream(Constants.TARGET_WORD_PROTECTED), 
-            new groupdocs.comparison.LoadOptions("5678")
+            new groupdocs.LoadOptions("5678")
         );
 
         // Perform comparison and save result

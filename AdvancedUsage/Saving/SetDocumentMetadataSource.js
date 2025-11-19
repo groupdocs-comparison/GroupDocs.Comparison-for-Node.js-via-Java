@@ -13,14 +13,14 @@ async function setDocumentMetadataSource(groupdocs) {
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     // Initialize comparer with source document
-    const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+    const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
     // Add target document for comparison
     comparer.add(Constants.TARGET_WORD);
     
     // Configure save options to clone metadata from source document
-    const saveOptions = new groupdocs.comparison.SaveOptions();
-    saveOptions.setCloneMetadataType(groupdocs.comparison.MetadataType.SOURCE);
+    const saveOptions = new groupdocs.SaveOptions();
+    saveOptions.setCloneMetadataType(groupdocs.MetadataType.SOURCE);
 
     // Perform comparison and save result with source metadata
     comparer.compare(outputFileName, saveOptions);

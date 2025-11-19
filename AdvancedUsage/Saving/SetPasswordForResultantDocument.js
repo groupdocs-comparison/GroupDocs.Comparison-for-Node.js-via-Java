@@ -13,17 +13,17 @@ async function setPasswordForResultantDocument(groupdocs) {
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     // Initialize comparer with source document
-    const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+    const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
     // Add target document for comparison
     comparer.add(Constants.TARGET_WORD);
 
     // Configure comparison options to use user-specified password
-    const compareOptions = new groupdocs.comparison.CompareOptions();
-    compareOptions.setPasswordSaveOption(groupdocs.comparison.PasswordSaveOption.USER);
+    const compareOptions = new groupdocs.CompareOptions();
+    compareOptions.setPasswordSaveOption(groupdocs.PasswordSaveOption.USER);
     
     // Configure save options with password protection
-    const saveOptions = new groupdocs.comparison.SaveOptions();
+    const saveOptions = new groupdocs.SaveOptions();
     saveOptions.setPassword("3333");
 
     // Perform comparison and save result with password protection

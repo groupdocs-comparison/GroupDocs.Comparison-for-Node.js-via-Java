@@ -19,7 +19,7 @@ async function compareMultipleDocumentsStream(groupdocs) {
         const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
         // Initialize comparer with source document
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
         // Add target documents as streams for comparison
         comparer.add(new InputStream(Constants.TARGET_WORD));

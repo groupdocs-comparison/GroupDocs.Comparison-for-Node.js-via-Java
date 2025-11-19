@@ -17,7 +17,7 @@ const Arrays = java.import('java.util.Arrays');
 async function acceptRejectDetectedChangesStream(groupdocs) {
     try {
         // Initialize comparer with source document stream
-        const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
+        const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_WORD));
 
         // Create output directory and file paths
         const outputDirectory = Constants.createOutputFolder('acceptRejectDetectedChangesStream');
@@ -32,16 +32,16 @@ async function acceptRejectDetectedChangesStream(groupdocs) {
         let changes = await comparer.getChanges();
         
         // Accept the first change and save result
-        changes[0].setComparisonAction(groupdocs.comparison.ComparisonAction.ACCEPT);
-        const applyChangeOptionsAccepted = new groupdocs.comparison.ApplyChangeOptions();
+        changes[0].setComparisonAction(groupdocs.ComparisonAction.ACCEPT);
+        const applyChangeOptionsAccepted = new groupdocs.ApplyChangeOptions();
         applyChangeOptionsAccepted.setSaveOriginalState(true);
         applyChangeOptionsAccepted.setChanges(Arrays.asList(changes));
         await comparer.applyChanges(outputPathRejected, applyChangeOptionsAccepted);
 
         // Re-fetch changes and reject the first change, then save result
         changes = await comparer.getChanges();
-        changes[0].setComparisonAction(groupdocs.comparison.ComparisonAction.REJECT);
-        const applyChangeOptionsRejected = new groupdocs.comparison.ApplyChangeOptions();
+        changes[0].setComparisonAction(groupdocs.ComparisonAction.REJECT);
+        const applyChangeOptionsRejected = new groupdocs.ApplyChangeOptions();
         applyChangeOptionsRejected.setChanges(Arrays.asList(changes));
         await comparer.applyChanges(outputPathAccepted, applyChangeOptionsRejected);
 

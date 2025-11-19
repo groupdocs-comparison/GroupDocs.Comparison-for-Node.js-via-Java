@@ -23,7 +23,7 @@ async function compareCellsFromPath(groupdocs) {
         console.log(`Output file: ${outputFileName}\n`);
 
         // Initialize comparer with source Excel file
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_CELLS);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_CELLS);
 
         // Add target Excel file for comparison
         comparer.add(Constants.TARGET_CELLS);

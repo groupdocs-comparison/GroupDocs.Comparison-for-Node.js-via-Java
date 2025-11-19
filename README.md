@@ -113,7 +113,7 @@ Advanced scenarios organized by feature:
 
 ```javascript
 // BasicUsage/compareDocumentsFromPath.js
-const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 comparer.compare(outputFileName);
 ```
@@ -123,7 +123,7 @@ comparer.compare(outputFileName);
 ```javascript
 // BasicUsage/compareDocumentsFromStream.js
 const InputStream = java.import('java.io.FileInputStream');
-const comparer = new groupdocs.comparison.Comparer(
+const comparer = new groupdocs.Comparer(
     new InputStream(Constants.SOURCE_WORD)
 );
 comparer.add(new InputStream(Constants.TARGET_WORD));
@@ -134,14 +134,14 @@ comparer.compare(outputFileName);
 
 ```javascript
 // AdvancedUsage/Comparison/acceptRejectDetectedChangesPath.js
-const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 await comparer.compare();
 
 let changes = await comparer.getChanges();
-changes[0].setComparisonAction(groupdocs.comparison.ComparisonAction.ACCEPT);
+changes[0].setComparisonAction(groupdocs.ComparisonAction.ACCEPT);
 
-const applyChangeOptions = new groupdocs.comparison.ApplyChangeOptions();
+const applyChangeOptions = new groupdocs.ApplyChangeOptions();
 applyChangeOptions.setChanges(Arrays.asList(changes));
 await comparer.applyChanges(outputPath, applyChangeOptions);
 ```
@@ -150,8 +150,8 @@ await comparer.applyChanges(outputPath, applyChangeOptions);
 
 ```javascript
 // AdvancedUsage/Comparison/compareDocumentsSettingsStream.js
-const compareOptions = new groupdocs.comparison.CompareOptions();
-const styleSettings = new groupdocs.comparison.StyleSettings();
+const compareOptions = new groupdocs.CompareOptions();
+const styleSettings = new groupdocs.StyleSettings();
 styleSettings.setUnderline(true);
 styleSettings.setFontColor(Color.GREEN);
 styleSettings.setHighlightColor(Color.RED);
@@ -164,7 +164,7 @@ await comparer.compare(outputFileName, compareOptions);
 
 ```javascript
 // AdvancedUsage/Comparison/compareMultipleDocumentsPath.js
-const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 comparer.add(Constants.TARGET2_WORD);
 comparer.add(Constants.TARGET3_WORD);
@@ -175,10 +175,10 @@ await comparer.compare(outputFileName);
 
 ```javascript
 // BasicUsage/compareDocumentsProtectedPath.js
-const loadOptions = new groupdocs.comparison.LoadOptions();
+const loadOptions = new groupdocs.LoadOptions();
 loadOptions.setPassword("1234");
 
-const comparer = new groupdocs.comparison.Comparer(
+const comparer = new groupdocs.Comparer(
     Constants.SOURCE_WORD_PROTECTED, 
     loadOptions
 );

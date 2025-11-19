@@ -28,7 +28,7 @@ async function compareMultiplePdfDocuments(groupdocs) {
     console.log(`Output file: ${outputFileName}\n`);
 
     // Initialize comparer with source PDF document
-    const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_PDF);
+    const comparer = new groupdocs.Comparer(Constants.SOURCE_PDF);
 
     // Add multiple target PDF documents for comparison
     console.log('Adding target PDF documents...');

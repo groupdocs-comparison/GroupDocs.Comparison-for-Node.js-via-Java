@@ -29,7 +29,7 @@ async function compareCellsFromStream(groupdocs) {
         console.log('Using file streams for document loading...\n');
 
         // Initialize comparer with source Excel file stream
-        const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_CELLS));
+        const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_CELLS));
 
         // Add target Excel file stream for comparison
         comparer.add(new InputStream(Constants.TARGET_CELLS));

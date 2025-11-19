@@ -19,15 +19,15 @@ async function compareMultipleDocumentsProtectedStream(groupdocs) {
         const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
         // Initialize comparer with source protected document stream and its password
-        const comparer = new groupdocs.comparison.Comparer(
+        const comparer = new groupdocs.Comparer(
             new InputStream(Constants.SOURCE_WORD_PROTECTED), 
-            new groupdocs.comparison.LoadOptions("1234")
+            new groupdocs.LoadOptions("1234")
         );
 
         // Add multiple target protected document streams with their passwords
-        comparer.add(new InputStream(Constants.TARGET_WORD_PROTECTED), new groupdocs.comparison.LoadOptions("5678"));
-        comparer.add(new InputStream(Constants.TARGET2_WORD_PROTECTED), new groupdocs.comparison.LoadOptions("5678"));
-        comparer.add(new InputStream(Constants.TARGET3_WORD_PROTECTED), new groupdocs.comparison.LoadOptions("5678"));
+        comparer.add(new InputStream(Constants.TARGET_WORD_PROTECTED), new groupdocs.LoadOptions("5678"));
+        comparer.add(new InputStream(Constants.TARGET2_WORD_PROTECTED), new groupdocs.LoadOptions("5678"));
+        comparer.add(new InputStream(Constants.TARGET3_WORD_PROTECTED), new groupdocs.LoadOptions("5678"));
 
         // Perform comparison and save result
         await comparer.compare(outputFileName);

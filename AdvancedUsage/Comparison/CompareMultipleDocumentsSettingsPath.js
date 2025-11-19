@@ -18,7 +18,7 @@ async function compareMultipleDocumentsSettingsPath(groupdocs) {
         const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
 
         // Initialize comparer with source document
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
         // Add multiple target documents for comparison
         comparer.add(Constants.TARGET_WORD);
@@ -26,8 +26,8 @@ async function compareMultipleDocumentsSettingsPath(groupdocs) {
         comparer.add(Constants.TARGET3_WORD);
 
         // Configure comparison options with custom styling
-        const compareOptions = new groupdocs.comparison.CompareOptions();
-        const styleSettings = new groupdocs.comparison.StyleSettings();
+        const compareOptions = new groupdocs.CompareOptions();
+        const styleSettings = new groupdocs.StyleSettings();
         styleSettings.setFontColor(Color.YELLOW);
         compareOptions.setInsertedItemStyle(styleSettings);
 

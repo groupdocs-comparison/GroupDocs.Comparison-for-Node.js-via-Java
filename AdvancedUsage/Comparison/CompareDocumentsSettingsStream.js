@@ -31,14 +31,14 @@ async function compareDocumentsSettingsStream(groupdocs) {
         console.log('Using file streams with custom styling (green font, red highlight, underline)...\n');
 
         // Initialize comparer with source document stream
-        const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
+        const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_WORD));
 
         // Add target document stream for comparison
         comparer.add(new InputStream(Constants.TARGET_WORD));
 
         // Configure comparison options with custom styling for inserted items
-        const compareOptions = new groupdocs.comparison.CompareOptions();
-        const styleSettings = new groupdocs.comparison.StyleSettings();
+        const compareOptions = new groupdocs.CompareOptions();
+        const styleSettings = new groupdocs.StyleSettings();
         styleSettings.setUnderline(true);
         styleSettings.setFontColor(Color.GREEN);
         styleSettings.setHighlightColor(Color.RED);

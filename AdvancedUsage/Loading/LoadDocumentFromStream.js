@@ -18,7 +18,7 @@ async function loadDocumentFromStream(groupdocs) {
     const outputFileName = path.join(outputDirectory, Constants.RESULT_WORD);
   
     // Initialize comparer with source document stream
-    const comparer = new groupdocs.comparison.Comparer(new InputStream(Constants.SOURCE_WORD));
+    const comparer = new groupdocs.Comparer(new InputStream(Constants.SOURCE_WORD));
 
     // Add target document stream for comparison
     comparer.add(new InputStream(Constants.TARGET_WORD));

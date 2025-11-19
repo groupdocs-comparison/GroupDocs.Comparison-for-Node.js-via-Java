@@ -1,5 +1,4 @@
-const comparison = require('@groupdocs/groupdocs.comparison')
-
+const groupdocs = require('@groupdocs/groupdocs.comparison')
 
 // Constant Variables 
 const Constants = require('./constants')
@@ -41,148 +40,141 @@ const setPasswordForResultantDocument = require('./AdvancedUsage/Saving/setPassw
 
 
 class Examples {
-  constructor() {
-    this.licensePath = Constants.LicensePath
-
-    // Initialize the model
-    this.comparison = comparison
-  }
-  
   async helloWorld() {
-    return helloWorld(this)
+    return helloWorld(groupdocs)
   }
 
   async compareCellsFromPath() {
-    return compareCellsFromPath(this);
+    return compareCellsFromPath(groupdocs);
   }
 
   async compareCellsFromStream() {
-    return compareCellsFromStream(this);
+    return compareCellsFromStream(groupdocs);
   }
 
   async compareDocumentsFromPath() {
-    return compareDocumentsFromPath(this);
+    return compareDocumentsFromPath(groupdocs);
   }
 
   async compareDocumentsFromStream() {
-    return compareDocumentsFromStream(this);
+    return compareDocumentsFromStream(groupdocs);
   }
 
   async compareDocumentsProtectedPath() {
-    return compareDocumentsProtectedPath(this);
+    return compareDocumentsProtectedPath(groupdocs);
   }
 
   async compareDocumentsProtectedStream() {
-    return compareDocumentsProtectedStream(this);
+    return compareDocumentsProtectedStream(groupdocs);
   }
 
   async compareImageFromPath() {
-    return compareImageFromPath(this);
+    return compareImageFromPath(groupdocs);
   }
 
   async compareImageFromStream() {
-    return compareImageFromStream(this);
+    return compareImageFromStream(groupdocs);
   }
 
   async getDocumentInfoPath() {
-    return getDocumentInfoPath(this);
+    return getDocumentInfoPath(groupdocs);
   }
 
   async getDocumentInfoStream() {
-    return getDocumentInfoStream(this);
+    return getDocumentInfoStream(groupdocs);
   }
 
   async getSupportedFormats() {
-    return getSupportedFormats(this);
+    return getSupportedFormats(groupdocs);
   }
 
   async acceptRejectDetectedChangesPath() {
-    return acceptRejectDetectedChangesPath(this);
+    return acceptRejectDetectedChangesPath(groupdocs);
   }
 
   async acceptRejectDetectedChangesStream() {
-    return acceptRejectDetectedChangesStream(this);
+    return acceptRejectDetectedChangesStream(groupdocs);
   }
 
   async compareDocumentsSettingsStream() {
-    return compareDocumentsSettingsStream(this);
+    return compareDocumentsSettingsStream(groupdocs);
   }
 
   async compareFolderSaveAsTxt() {
-    return compareFolders.compareFolderSaveAsTxt(this);
+    return compareFolders.compareFolderSaveAsTxt(groupdocs);
   }
   
   async compareFolderSaveAsHtml() {
-    return compareFolders.compareFolderSaveAsHtml(this);
+    return compareFolders.compareFolderSaveAsHtml(groupdocs);
   }
 
   async compareMultipleWordsDocuments() {
-    return compareMultipleDocuments.compareMultipleWordsDocuments(this);
+    return compareMultipleDocuments.compareMultipleWordsDocuments(groupdocs);
   }
 
   async compareMultiplePdfDocuments() {
-    return compareMultipleDocuments.compareMultiplePdfDocuments(this);
+    return compareMultipleDocuments.compareMultiplePdfDocuments(groupdocs);
   }
 
   async compareMultipleTxtDocuments() {
-    return compareMultipleDocuments.compareMultipleTxtDocuments(this);
+    return compareMultipleDocuments.compareMultipleTxtDocuments(groupdocs);
   }
 
   async compareMultipleEmailDocuments() {
-    return compareMultipleDocuments.compareMultipleEmailDocuments(this);
+    return compareMultipleDocuments.compareMultipleEmailDocuments(groupdocs);
   }
   
   async compareMultipleDocumentsProtectedPath() {
-    return compareMultipleDocumentsProtectedPath(this);
+    return compareMultipleDocumentsProtectedPath(groupdocs);
   }
 
   async compareMultipleDocumentsProtectedStream() {
-    return compareMultipleDocumentsProtectedStream(this);
+    return compareMultipleDocumentsProtectedStream(groupdocs);
   }
 
   async compareMultipleDocumentsSettingsPath() {
-    return compareMultipleDocumentsSettingsPath(this);
+    return compareMultipleDocumentsSettingsPath(groupdocs);
   }
 
   async compareMultipleDocumentsSettingsStream() {
-    return compareMultipleDocumentsSettingsStream(this);
+    return compareMultipleDocumentsSettingsStream(groupdocs);
   }
 
   async compareMultipleDocumentsStream() {
-    return compareMultipleDocumentsStream(this);
+    return compareMultipleDocumentsStream(groupdocs);
   }
 
   async loadDocumentFromLocalDisc() {
-    return loadDocumentFromLocalDisc(this);
+    return loadDocumentFromLocalDisc(groupdocs);
   }
 
   async loadDocumentFromStream() {
-    return loadDocumentFromStream(this);
+    return loadDocumentFromStream(groupdocs);
   }
 
   async loadTextFromString() {
-    return loadTextFromString(this);
+    return loadTextFromString(groupdocs);
   }
 
   async setDocumentMetadataSource() {
-    return setDocumentMetadataSource(this);
+    return setDocumentMetadataSource(groupdocs);
   }
 
   async setDocumentMetadataTarget() {
-    return setDocumentMetadataTarget(this);
+    return setDocumentMetadataTarget(groupdocs);
   }
 
   async setPasswordForResultantDocument() {
-    return setPasswordForResultantDocument(this);
+    return setPasswordForResultantDocument(groupdocs);
   }
 
   async setMeteredLicense() {
-    return setMeteredLicense(this);
+    return setMeteredLicense(groupdocs);
   }
 
   async setLicense(licensePath = '') {
-    if (licensePath) return setLicense(this, licensePath)
-    else return setLicense(this, this.licensePath)
+    if (licensePath) return setLicense(groupdocs, licensePath)
+    else return setLicense(groupdocs, Constants.LicensePath)
   }
 }
 

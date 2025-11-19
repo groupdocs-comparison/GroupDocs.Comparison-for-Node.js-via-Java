@@ -23,7 +23,7 @@ async function compareMultipleDocuments(groupdocs, sourcePath, targetPaths, resu
         console.log(`Output file: ${outputFileName}\n`);
 
         // Initialize comparer with source document
-        const comparer = new groupdocs.comparison.Comparer(sourcePath);
+        const comparer = new groupdocs.Comparer(sourcePath);
 
         // Add all target documents for comparison
         console.log('Adding target documents...');

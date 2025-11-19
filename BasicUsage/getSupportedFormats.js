@@ -13,7 +13,7 @@ async function getSupportedFormats(groupdocs) {
     try {
         // Retrieve the supported file types
         console.log('Retrieving supported file types...\n');
-        const fileTypes = await groupdocs.comparison.FileType.getSupportedFileTypes();
+        const fileTypes = await groupdocs.FileType.getSupportedFileTypes();
 
         // Display all supported file types
         let count = 0;

@@ -17,7 +17,7 @@ async function getDocumentInfoPath(groupdocs) {
     console.log(`Document: ${Constants.SOURCE_WORD}\n`);
 
     // Initialize comparer with source document
-    const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+    const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
     // Extract document information
     console.log('Extracting document information...');

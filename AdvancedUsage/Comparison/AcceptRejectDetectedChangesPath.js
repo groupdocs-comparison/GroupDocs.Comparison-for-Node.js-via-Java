@@ -30,7 +30,7 @@ async function acceptRejectDetectedChangesPath(groupdocs) {
         console.log(`Output (rejected changes): ${outputPathRejected}\n`);
 
         // Initialize comparer with source document
-        const comparer = new groupdocs.comparison.Comparer(Constants.SOURCE_WORD);
+        const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 
         // Add target document and perform comparison
         console.log('Comparing documents...');
@@ -44,8 +44,8 @@ async function acceptRejectDetectedChangesPath(groupdocs) {
         
         // Accept the first change and save result
         console.log('Applying accepted changes...');
-        changes[0].setComparisonAction(groupdocs.comparison.ComparisonAction.ACCEPT);
-        const applyChangeOptionsAccepted = new groupdocs.comparison.ApplyChangeOptions();
+        changes[0].setComparisonAction(groupdocs.ComparisonAction.ACCEPT);
+        const applyChangeOptionsAccepted = new groupdocs.ApplyChangeOptions();
         applyChangeOptionsAccepted.setSaveOriginalState(true);
         applyChangeOptionsAccepted.setChanges(Arrays.asList(changes));
         await comparer.applyChanges(outputPathRejected, applyChangeOptionsAccepted);
@@ -53,8 +53,8 @@ async function acceptRejectDetectedChangesPath(groupdocs) {
         // Re-fetch changes and reject the first change, then save result
         console.log('Applying rejected changes...');
         changes = await comparer.getChanges();
-        changes[0].setComparisonAction(groupdocs.comparison.ComparisonAction.REJECT);
-        const applyChangeOptionsRejected = new groupdocs.comparison.ApplyChangeOptions();
+        changes[0].setComparisonAction(groupdocs.ComparisonAction.REJECT);
+        const applyChangeOptionsRejected = new groupdocs.ApplyChangeOptions();
         applyChangeOptionsRejected.setChanges(Arrays.asList(changes));
         await comparer.applyChanges(outputPathAccepted, applyChangeOptionsRejected);
 
