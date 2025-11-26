@@ -132,3 +132,6 @@ Results/
 
 # Build is platform dependent
 package-lock.json
+
+# Output files
+Output/

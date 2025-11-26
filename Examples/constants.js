@@ -13,7 +13,7 @@ class Constants {
       throw new Error(`Could not find samples directory at ${this.samplesPath}`);
     }
 
-    this.outputPath = '../Results/Output';
+    this.outputPath = 'Output';
 
     // License path from environment variable (full path to .lic file)
     this.LicensePath = process.env.GROUPDOCS_LICENSE || '';

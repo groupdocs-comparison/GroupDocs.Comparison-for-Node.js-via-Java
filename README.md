@@ -45,7 +45,7 @@ Execute all examples:
 npm start
 ```
 
-Outputs are saved to `Results/Output/<example-name>/`.
+Outputs are saved to `Output/<example-name>/`.
 
 ## Example Structure
 
