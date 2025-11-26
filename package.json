@@ -1,8 +1,16 @@
 {
   "name": "groupdocs.comparison-for-node.js-via-java",
   "version": "25.11.0",
+  "scripts": {
+    "start": "node Examples/runExamples.js",
+    "lint": "eslint Examples/**/*.js",
+    "lint:fix": "eslint Examples/**/*.js --fix"
+  },
   "dependencies": {
     "@groupdocs/groupdocs.comparison": "^25.11.0",
     "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
   }
 }

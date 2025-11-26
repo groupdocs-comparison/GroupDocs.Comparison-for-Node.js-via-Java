@@ -33,7 +33,7 @@ For detailed installation instructions and platform-specific notes, refer to the
 npm install
 ```
 
-This installs the bundled package (`groupdocs-groupdocs.comparison-25.11.0.tgz`) referenced in `package.json`.
+This installs `@groupdocs/groupdocs.comparison` and other packages referenced in `package.json`.
 
 ## Running Examples
 
@@ -42,7 +42,7 @@ This installs the bundled package (`groupdocs-groupdocs.comparison-25.11.0.tgz`)
 Execute all examples: 
 
 ```bash
-node runExamples.js
+npm start
 ```
 
 Outputs are saved to `Results/Output/<example-name>/`.
@@ -112,7 +112,7 @@ Advanced scenarios organized by feature:
 ### Basic Comparison (Path)
 
 ```javascript
-// BasicUsage/compareDocumentsFromPath.js
+// Examples/BasicUsage/compareDocumentsFromPath.js
 const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 comparer.compare(outputFileName);
@@ -121,7 +121,7 @@ comparer.compare(outputFileName);
 ### Basic Comparison (Stream)
 
 ```javascript
-// BasicUsage/compareDocumentsFromStream.js
+// Examples/BasicUsage/compareDocumentsFromStream.js
 const InputStream = java.import('java.io.FileInputStream');
 const comparer = new groupdocs.Comparer(
     new InputStream(Constants.SOURCE_WORD)
@@ -133,7 +133,7 @@ comparer.compare(outputFileName);
 ### Accept/Reject Changes
 
 ```javascript
-// AdvancedUsage/Comparison/acceptRejectDetectedChangesPath.js
+// Examples/AdvancedUsage/Comparison/acceptRejectDetectedChangesPath.js
 const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 await comparer.compare();
@@ -149,7 +149,7 @@ await comparer.applyChanges(outputPath, applyChangeOptions);
 ### Custom Comparison Settings
 
 ```javascript
-// AdvancedUsage/Comparison/compareDocumentsSettingsStream.js
+// Examples/AdvancedUsage/Comparison/compareDocumentsSettingsStream.js
 const compareOptions = new groupdocs.CompareOptions();
 const styleSettings = new groupdocs.StyleSettings();
 styleSettings.setUnderline(true);
@@ -163,7 +163,7 @@ await comparer.compare(outputFileName, compareOptions);
 ### Multiple Documents
 
 ```javascript
-// AdvancedUsage/Comparison/compareMultipleDocumentsPath.js
+// Examples/AdvancedUsage/Comparison/compareMultipleDocumentsPath.js
 const comparer = new groupdocs.Comparer(Constants.SOURCE_WORD);
 comparer.add(Constants.TARGET_WORD);
 comparer.add(Constants.TARGET2_WORD);
@@ -174,7 +174,7 @@ await comparer.compare(outputFileName);
 ### Password-Protected Documents
 
 ```javascript
-// BasicUsage/compareDocumentsProtectedPath.js
+// Examples/BasicUsage/compareDocumentsProtectedPath.js
 const loadOptions = new groupdocs.LoadOptions();
 loadOptions.setPassword("1234");
 
@@ -188,10 +188,10 @@ comparer.compare(outputFileName);
 
 ## Using the Examples Module
 
-All examples are accessible through `examples.js`:
+All examples are accessible through `Examples/examples.js`:
 
 ```javascript
-const examples = require('./examples');
+const examples = require('./Examples/examples');
 
 // Basic examples
 await examples.helloWorld();
@@ -211,43 +211,45 @@ await examples.setDocumentMetadataSource();
 ## Project Structure
 
 ```
-├── BasicUsage/              # Basic comparison examples
-│   ├── compareDocumentsFromPath.js
-│   ├── compareDocumentsFromStream.js
-│   ├── compareCellsFromPath.js
-│   └── ...
-│
-├── AdvancedUsage/          # Advanced features
-│   ├── Comparison/         # Advanced comparison scenarios
-│   ├── Loading/           # Document loading options
-│   └── Saving/            # Result saving options
-│
-├── QuickStart/            # Quick start examples
-│   ├── helloWorld.js
-│   ├── setLicense.js
-│   └── setMeteredLicense.js
-│
-├── Resources/
-│   └── SampleFiles/      # Sample input files
-│       ├── source.docx
-│       ├── target.docx
-│       └── ...
+├── Examples/               # All example code
+│   ├── BasicUsage/        # Basic comparison examples
+│   │   ├── compareDocumentsFromPath.js
+│   │   ├── compareDocumentsFromStream.js
+│   │   ├── compareCellsFromPath.js
+│   │   └── ...
+│   │
+│   ├── AdvancedUsage/     # Advanced features
+│   │   ├── Comparison/   # Advanced comparison scenarios
+│   │   ├── Loading/       # Document loading options
+│   │   └── Saving/        # Result saving options
+│   │
+│   ├── QuickStart/       # Quick start examples
+│   │   ├── helloWorld.js
+│   │   ├── setLicense.js
+│   │   └── setMeteredLicense.js
+│   │
+│   ├── Resources/
+│   │   └── SampleFiles/  # Sample input files
+│   │       ├── source.docx
+│   │       ├── target.docx
+│   │       └── ...
+│   │
+│   ├── constants.js      # File paths and configuration
+│   ├── examples.js        # Example runner module
+│   └── runExamples.js     # Run all examples
 │
 ├── Results/
-│   └── Output/           # Generated results (auto-created)
+│   └── Output/            # Generated results (auto-created)
 │
-├── constants.js           # File paths and configuration
-├── examples.js            # Example runner module
-├── runExamples.js         # Run all examples
 └── package.json
 ```
 
 ## Input and Output
 
-- **Input Files**: `Resources/SampleFiles/` (configured in `constants.js`)
+- **Input Files**: `Examples/Resources/SampleFiles/` (configured in `Examples/constants.js`)
 - **Output Files**: `Results/Output/<example-name>/` (auto-created per example)
 
-Modify `constants.js` to change paths if needed.
+Modify `Examples/constants.js` to change paths if needed.
 
 ## License Setup (Optional)
 
@@ -263,7 +265,7 @@ GROUPDOCS_LICENSE=C:\path\to\license.lic
 **Option 2: Programmatic**
 
 ```javascript
-const examples = require('./examples');
+const examples = require('./Examples/examples');
 await examples.setLicense('path/to/license.lic');
 ```
 
